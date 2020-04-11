@@ -25,7 +25,7 @@
                 })
             },
             promptNumber() {
-                this.$buefy.dialog.prompt({
+                const dialog = this.$buefy.dialog.prompt({
                     message: `What's your age?`,
                     inputAttrs: {
                         type: 'number',
@@ -34,8 +34,10 @@
                         maxlength: 2,
                         min: 18
                     },
-                    trapFocus: true,
-                    onConfirm: (value) => this.$buefy.toast.open(`Your age is: ${value}`)
+                    trapFocus: true
+                })
+                dialog.result.then((value) => {
+                    this.$buefy.toast.open(`Your age is: ${value}`)
                 })
             }
         }

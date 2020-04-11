@@ -51,6 +51,7 @@ export default {
         * Call action prop before closing (from Mixin).
         */
         action() {
+            this.$emit('action')
             this.onAction()
             this.close()
         }

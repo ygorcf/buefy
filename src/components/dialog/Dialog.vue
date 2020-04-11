@@ -194,6 +194,7 @@ export default {
                 }
             }
 
+            this.$emit('confirm', this.prompt)
             this.onConfirm(this.prompt)
             this.close()
         },

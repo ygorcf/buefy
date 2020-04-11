@@ -12,13 +12,22 @@ const LoadingProgrammatic = {
             programmatic: true
         }
         const propsData = merge(defaultParam, params)
-
         const vm = typeof window !== 'undefined' && window.Vue ? window.Vue : localVueInstance || VueInstance
         const LoadingComponent = vm.extend(Loading)
-        return new LoadingComponent({
+        const component = new LoadingComponent({
             el: document.createElement('div'),
             propsData
         })
+        let promise
+        if (Promise && typeof Promise !== 'undefined') {
+            promise = new Promise((resolve) => {
+                component.$on('cancel', (event) => resolve(event))
+            })
+        }
+        return {
+            component,
+            result: promise
+        }
     }
 }
 

@@ -27,11 +27,21 @@ const SnackbarProgrammatic = {
 
         const vm = typeof window !== 'undefined' && window.Vue ? window.Vue : localVueInstance || VueInstance
         const SnackbarComponent = vm.extend(Snackbar)
-        return new SnackbarComponent({
+        const component = new SnackbarComponent({
             parent,
             el: document.createElement('div'),
             propsData
         })
+        let promise
+        if (Promise && typeof Promise !== 'undefined') {
+            promise = new Promise((resolve) => {
+                component.$on('action', () => resolve())
+            })
+        }
+        return {
+            component,
+            result: promise
+        }
     }
 }
 

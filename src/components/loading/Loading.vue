@@ -60,6 +60,7 @@ export default {
         cancel() {
             if (!this.canCancel || !this.isActive) return
 
+            this.$emit('cancel')
             this.close()
         },
         /**

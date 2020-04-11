@@ -9,10 +9,21 @@ let localVueInstance
 function open(propsData) {
     const vm = typeof window !== 'undefined' && window.Vue ? window.Vue : localVueInstance || VueInstance
     const DialogComponent = vm.extend(Dialog)
-    return new DialogComponent({
+    const component = new DialogComponent({
         el: document.createElement('div'),
         propsData
     })
+    let promise
+    if (Promise && typeof Promise !== 'undefined') {
+        promise = new Promise((resolve) => {
+            component.$on('confirm', (event) => resolve(event || true))
+            component.$on('cancel', () => resolve(false))
+        })
+    }
+    return {
+        component,
+        result: promise
+    }
 }
 
 const DialogProgrammatic = {

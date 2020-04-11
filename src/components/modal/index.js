@@ -26,11 +26,23 @@ const ModalProgrammatic = {
 
         const vm = typeof window !== 'undefined' && window.Vue ? window.Vue : localVueInstance || VueInstance
         const ModalComponent = vm.extend(Modal)
-        return new ModalComponent({
+        const component = new ModalComponent({
             parent,
             el: document.createElement('div'),
             propsData
         })
+
+        let promise
+        if (Promise && typeof Promise !== 'undefined') {
+            promise = new Promise((resolve, reject) => {
+                component.$on('close', (event) => resolve(event))
+                component.$on('cancel', () => resolve(false))
+            })
+        }
+        return {
+            component,
+            result: promise
+        }
     }
 }
 

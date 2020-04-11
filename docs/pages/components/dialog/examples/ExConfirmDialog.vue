@@ -53,13 +53,15 @@
                 })
             },
             confirmCustomDelete() {
-                this.$buefy.dialog.confirm({
+                const dialog = this.$buefy.dialog.confirm({
                     title: 'Deleting account',
                     message: 'Are you sure you want to <b>delete</b> your account? This action cannot be undone.',
                     confirmText: 'Delete Account',
                     type: 'is-danger',
-                    hasIcon: true,
-                    onConfirm: () => this.$buefy.toast.open('Account deleted!')
+                    hasIcon: true
+                })
+                dialog.result.then((val) => {
+                    this.$buefy.toast.open('Account deleted!')
                 })
             }
         }

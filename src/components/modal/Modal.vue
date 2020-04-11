@@ -199,6 +199,7 @@ export default {
         cancel(method) {
             if (this.cancelOptions.indexOf(method) < 0) return
 
+            this.$emit('cancel', method)
             this.onCancel.apply(null, arguments)
             this.close()
         },
@@ -207,8 +208,8 @@ export default {
         * Call the onCancel prop (function).
         * Emit events, and destroy modal if it's programmatic.
         */
-        close() {
-            this.$emit('close')
+        close(event) {
+            this.$emit('close', event)
             this.$emit('update:active', false)
 
             // Timeout for the animation complete before destroying
