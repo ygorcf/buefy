@@ -542,6 +542,19 @@
         ],
         "isUpdated": true
     },
+    "documentation/image": {
+        "title": "Image",
+        "subtitle": "A placeholder for content to load",
+        "path": "/documentation/image",
+        "githubPath": "pages/components/skeleton/Skeleton.vue",
+        "menu": "documentation",
+        "breadcrumb": [
+            "/",
+            "documentation",
+            "documentation/skeleton"
+        ],
+        "isUpdated": true
+    },
     "extensions": {
         "title": "Extensions",
         "subtitle": "See how you can improve Buefy with other packages",

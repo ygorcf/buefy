@@ -356,6 +356,27 @@
     "description": "Buefy component <b-input>",
     "subtags": []
   },
+  "b-image": {
+    "attributes": [
+      "value",
+      "type",
+      "size",
+      "expanded",
+      "password-reveal",
+      "loading",
+      "icon-pack",
+      "icon",
+      "icon-right",
+      "icon-clickable",
+      "icon-right-clickable",
+      "maxlength",
+      "has-counter",
+      "custom-class",
+      "validation-message"
+    ],
+    "description": "Buefy component <b-input>",
+    "subtags": []
+  },
   "b-loading": {
     "attributes": [
       "active",

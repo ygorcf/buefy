@@ -11,6 +11,7 @@ import Dropdown from './dropdown'
 import Field from './field'
 import Icon from './icon'
 import Input from './input'
+import Image from './image'
 import Loading from './loading'
 import Menu from './menu'
 import Message from './message'
@@ -52,6 +53,7 @@ export {
     Field,
     Icon,
     Input,
+    Image,
     Loading,
     Menu,
     Message,
